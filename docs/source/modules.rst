@@ -9,6 +9,13 @@ APP
    :undoc-members:
    :show-inheritance:
 
+APP
+---
+.. automodule:: musical_analysis_app.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pages
 =====
 .. automodule:: musical_analysis_app.pages

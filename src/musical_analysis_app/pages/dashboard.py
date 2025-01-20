@@ -28,7 +28,7 @@ def main():
     )
 
     # Genre selection for highlights
-    selected_genre = st.selectbox(
+    st.selectbox(
         "Sélectionner un genre",
         options=genre_popularity.index,
         key="genre_selector",

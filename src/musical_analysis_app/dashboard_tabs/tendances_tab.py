@@ -1,6 +1,5 @@
 import streamlit as st
 import plotly.express as px
-from musical_analysis_app.utils.dashboard_utils import on_genre_select
 
 
 def tendances_tab(df):

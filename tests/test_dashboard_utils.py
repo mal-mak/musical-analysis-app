@@ -2,7 +2,6 @@ import unittest
 import pandas as pd
 import streamlit as st
 from unittest.mock import patch
-from pathlib import Path
 from musical_analysis_app.utils.dashboard_utils import (
     load_data,
     normalize_tempo,

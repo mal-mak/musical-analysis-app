@@ -4,4 +4,4 @@ Interactive application that aims to help music producing companies determine wh
 Using Streamlit
 
 App available here:
-https://malmak-musical-analysis.streamlit.app/dashboard
+https://malmak-musical-analysis.streamlit.app/

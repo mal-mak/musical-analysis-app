@@ -8,6 +8,21 @@ features = FEATURES
 
 
 def caracteristics_tab(df):
+    """
+    Display the 'Caractéristiques Musicales' tab with visualizations.
+
+    This function generates two main plots: a bar chart and a radar chart.
+
+    The bar chart shows the average selected musical feature for each genre.
+    The radar chart shows the profile of a selected genre based on the average values
+    of various features (excluding "tempo").
+
+    :param df: The dataframe containing the music track data, including
+               the columns 'track_genre' and various musical features.
+    :type df: pandas.DataFrame
+
+    The function utilizes Plotly for visualizations and Streamlit to render the UI.
+    """
     st.header("Caractéristiques Musicales")
 
     col1, col2 = st.columns(2)

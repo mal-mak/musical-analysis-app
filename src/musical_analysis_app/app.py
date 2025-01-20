@@ -1,6 +1,13 @@
 import streamlit as st
 
 def main():
+    """
+    Main function for the Musical Analysis Tool application.
+
+    - It introduces the purpose of the app to the user.
+    - It displays information about the features available in the app.
+    - A button is provided to navigate to the dashboard.
+    """
     st.set_page_config(
         page_title="Musical Analysis Tool",
         page_icon="🎵",

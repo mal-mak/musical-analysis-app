@@ -1,5 +1,4 @@
 import streamlit as st
-import plotly.express as px
 from musical_analysis_app.utils.features import FEATURES
 
 features = FEATURES
@@ -12,9 +11,21 @@ def recommendations_tab(df):
     popular_tracks = df[df["popularity"] > df["popularity"].quantile(0.75)]
     optimal_features = popular_tracks[list(features.keys())].mean()
 
-    st.write("### Caractéristiques des titres à succès")
-    for feature, value in optimal_features.items():
-        st.metric(label=features.get(feature, feature), value=f"{value:.2f}")
+    # Caractéristiques optimales pour le genre sélectionné
+    popular_genre = df[df['track_genre'] == st.session_state.get("genre_selector")]
+    popular_genre = popular_genre[popular_genre["popularity"] > popular_genre["popularity"].quantile(0.75)]
+    optimal_genre_features = popular_genre[list(features.keys())].mean()
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("### Caractéristiques des titres à succès")
+        for feature, value in optimal_features.items():
+            st.metric(label=features.get(feature, feature), value=f"{value:.2f}")
+
+    with col2:
+        st.write(f"### Caractéristiques des titres à succès du genre {st.session_state.get("genre_selector")}")
+        for feature, value in optimal_genre_features.items():
+            st.metric(label=features.get(feature, feature), value=f"{value:.2f}")
 
     st.write("### Conclusions")
     st.write(

@@ -54,6 +54,10 @@ def caracteristics_tab(df):
                 fill="toself",
                 name=(selected_genre if selected_genre else "Aucun genre sélectionné"),
                 marker=dict(color="red"),
+                text=[
+                    f"{feature}: {value:.2f}" for feature, value in genre_stats.items()
+                ],
+                hoverinfo="text",  # Show text on hover
             )
         )
         fig_radar.update_layout(

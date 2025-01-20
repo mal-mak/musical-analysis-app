@@ -1,5 +1,9 @@
 import streamlit as st
-from musical_analysis_app.utils.dashboard_utils import load_data, normalize_tempo
+from musical_analysis_app.utils.dashboard_utils import (
+    load_data,
+    normalize_tempo,
+    on_genre_select,
+)
 from musical_analysis_app.dashboard_tabs.popularity_tab import popularity_tab
 from musical_analysis_app.dashboard_tabs.caracteristics_tab import caracteristics_tab
 from musical_analysis_app.dashboard_tabs.recommendations_tab import recommendations_tab
@@ -17,6 +21,19 @@ def main():
 
     # Normalisation du tempo
     df["tempo_normalized"] = normalize_tempo(df)
+
+    # Popularité par genre
+    genre_popularity = (
+        df.groupby("track_genre")["popularity"].mean().sort_values(ascending=False)
+    )
+
+    # Genre selection for highlights
+    selected_genre = st.selectbox(
+        "Sélectionner un genre",
+        options=genre_popularity.index,
+        key="genre_selector",
+        on_change=on_genre_select,
+    )
 
     # Tabs pour organiser les analyses
     tab1, tab2, tab3, tab4 = st.tabs(

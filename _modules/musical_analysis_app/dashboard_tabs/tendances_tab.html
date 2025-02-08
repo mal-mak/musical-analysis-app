@@ -1,0 +1,143 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>musical_analysis_app.dashboard_tabs.tendances_tab &mdash; malmak-musical-analysis-app 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            malmak-musical-analysis-app
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html#module-musical_analysis_app.pages">pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html#module-musical_analysis_app.dashboard_tabs">dashboard_tabs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html#module-musical_analysis_app.utils">utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">malmak-musical-analysis-app</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">musical_analysis_app.dashboard_tabs.tendances_tab</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for musical_analysis_app.dashboard_tabs.tendances_tab</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+
+
+<div class="viewcode-block" id="tendances_tab">
+<a class="viewcode-back" href="../../../modules.html#musical_analysis_app.dashboard_tabs.tendances_tab.tendances_tab">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tendances_tab</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display the &#39;Analyse des Tendances&#39; tab with insights on the average duration</span>
+<span class="sd">    of tracks by genre, helping identify trends in track length across genres.</span>
+
+<span class="sd">    This function calculates and visualizes the average track duration for each genre</span>
+<span class="sd">    and highlights the selected genre for comparison. The analysis helps to uncover</span>
+<span class="sd">    trends in the duration of tracks that might be associated with genre-specific</span>
+<span class="sd">    popularity or success.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (pandas.DataFrame): The dataframe containing the music track data, including</span>
+<span class="sd">                            the &#39;track_genre&#39; and &#39;duration_ms&#39; columns.</span>
+
+<span class="sd">    The function uses Streamlit to display a bar chart showing the average track duration</span>
+<span class="sd">    by genre, with a specific color for the genre selected by the user.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;Analyse des Tendances&quot;</span><span class="p">)</span>
+
+    <span class="n">duration_by_genre</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;track_genre&quot;</span><span class="p">)[</span><span class="s2">&quot;duration_ms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span>
+    <span class="n">color_discrete_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">genre</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span> <span class="k">if</span> <span class="n">genre</span> <span class="o">==</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;genre_selector&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;blue&quot;</span>
+        <span class="k">for</span> <span class="n">genre</span> <span class="ow">in</span> <span class="n">duration_by_genre</span><span class="o">.</span><span class="n">index</span>
+    <span class="p">}</span>
+    <span class="n">fig_duration</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+        <span class="n">duration_by_genre</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Durée moyenne par genre&quot;</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Durée (secondes)&quot;</span><span class="p">,</span> <span class="s2">&quot;track_genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Genre&quot;</span><span class="p">},</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">duration_by_genre</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">color_discrete_map</span><span class="o">=</span><span class="n">color_discrete_map</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">plotly_chart</span><span class="p">(</span><span class="n">fig_duration</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, malmak.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

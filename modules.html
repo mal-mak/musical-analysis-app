@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APP &mdash; malmak-musical-analysis-app 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="malmak-musical-analysis-app documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            malmak-musical-analysis-app
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">APP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">APP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.app.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-musical_analysis_app.pages">pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-musical_analysis_app.pages.dashboard">dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.pages.dashboard.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-musical_analysis_app.dashboard_tabs">dashboard_tabs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-musical_analysis_app.dashboard_tabs.caracteristics_tab">caracteristics_tab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.dashboard_tabs.caracteristics_tab.caracteristics_tab"><code class="docutils literal notranslate"><span class="pre">caracteristics_tab()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-musical_analysis_app.dashboard_tabs.popularity_tab">popularity_tab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.dashboard_tabs.popularity_tab.popularity_tab"><code class="docutils literal notranslate"><span class="pre">popularity_tab()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-musical_analysis_app.dashboard_tabs.recommendations_tab">recommendations_tab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.dashboard_tabs.recommendations_tab.recommendations_tab"><code class="docutils literal notranslate"><span class="pre">recommendations_tab()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-musical_analysis_app.dashboard_tabs.tendances_tab">tendances_tab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.dashboard_tabs.tendances_tab.tendances_tab"><code class="docutils literal notranslate"><span class="pre">tendances_tab()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-musical_analysis_app.utils">utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-musical_analysis_app.utils.dashboard_utils">dashboard_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.utils.dashboard_utils.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.utils.dashboard_utils.normalize_tempo"><code class="docutils literal notranslate"><span class="pre">normalize_tempo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#musical_analysis_app.utils.dashboard_utils.on_genre_select"><code class="docutils literal notranslate"><span class="pre">on_genre_select()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">malmak-musical-analysis-app</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">APP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="module-musical_analysis_app">
+<span id="app"></span><h1>APP<a class="headerlink" href="#module-musical_analysis_app" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>APP<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="py function" id="module-musical_analysis_app.app">
+<dt class="sig sig-object py" id="musical_analysis_app.app.main">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.app.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/app.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.app.main" title="Link to this definition"></a></dt>
+<dd><p>Main function for the Musical Analysis Tool application.</p>
+<ul class="simple">
+<li><p>It introduces the purpose of the app to the user.</p></li>
+<li><p>It displays information about the features available in the app.</p></li>
+<li><p>A button is provided to navigate to the dashboard.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+</section>
+<section id="module-musical_analysis_app.pages">
+<span id="pages"></span><h1>pages<a class="headerlink" href="#module-musical_analysis_app.pages" title="Link to this heading"></a></h1>
+<section id="module-musical_analysis_app.pages.dashboard">
+<span id="dashboard"></span><h2>dashboard<a class="headerlink" href="#module-musical_analysis_app.pages.dashboard" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.pages.dashboard.main">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.pages.dashboard.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/pages/dashboard.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.pages.dashboard.main" title="Link to this definition"></a></dt>
+<dd><p>The main function that sets up and runs the musical analysis dashboard.</p>
+<p>This function initializes the Streamlit app with a set of interactive tabs that allow users to
+explore different aspects of musical track data, including popularity, musical
+characteristics, trends, and recommendations to maximize sales.</p>
+<p>The function does the following:
+- Configures the page layout and title.
+- Loads the dataset and normalizes the tempo feature.
+- Displays a genre selection widget for users to highlight a specific genre.
+- Organizes and displays various analysis tabs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“Popularité” (Popularity): Analyzes average popularity by genre.</p></li>
+<li><p>“Caractéristiques” (Characteristics): Analyzes musical features by genre.</p></li>
+<li><p>“Tendances” (Trends): Analyzes average track duration by genre.</p></li>
+<li><p>“Recommandations” (Recommendations): Provides recommendations for maximizing
+track sales based on characteristics of popular tracks.</p></li>
+</ul>
+</div></blockquote>
+<p>Each tab presents its analysis using Streamlit components and Plotly charts.</p>
+<p>The function runs within a Streamlit app and interacts with the data using pandas,
+while also making use of Plotly for creating interactive visualizations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the genre selection is invalid or data is missing.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="module-musical_analysis_app.dashboard_tabs">
+<span id="dashboard-tabs"></span><h1>dashboard_tabs<a class="headerlink" href="#module-musical_analysis_app.dashboard_tabs" title="Link to this heading"></a></h1>
+<section id="module-musical_analysis_app.dashboard_tabs.caracteristics_tab">
+<span id="caracteristics-tab"></span><h2>caracteristics_tab<a class="headerlink" href="#module-musical_analysis_app.dashboard_tabs.caracteristics_tab" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.dashboard_tabs.caracteristics_tab.caracteristics_tab">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.dashboard_tabs.caracteristics_tab.</span></span><span class="sig-name descname"><span class="pre">caracteristics_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/dashboard_tabs/caracteristics_tab.html#caracteristics_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.dashboard_tabs.caracteristics_tab.caracteristics_tab" title="Link to this definition"></a></dt>
+<dd><p>Display the ‘Caractéristiques Musicales’ tab with visualizations.</p>
+<p>This function generates two main plots: a bar chart and a radar chart.</p>
+<p>The bar chart shows the average selected musical feature for each genre.
+The radar chart shows the profile of a selected genre based on the average values
+of various features (excluding “tempo”).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The dataframe containing the music track data, including
+the columns ‘track_genre’ and various musical features.</p>
+</dd>
+</dl>
+<p>The function utilizes Plotly for visualizations and Streamlit to render the UI.</p>
+</dd></dl>
+
+</section>
+<section id="module-musical_analysis_app.dashboard_tabs.popularity_tab">
+<span id="popularity-tab"></span><h2>popularity_tab<a class="headerlink" href="#module-musical_analysis_app.dashboard_tabs.popularity_tab" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.dashboard_tabs.popularity_tab.popularity_tab">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.dashboard_tabs.popularity_tab.</span></span><span class="sig-name descname"><span class="pre">popularity_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/dashboard_tabs/popularity_tab.html#popularity_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.dashboard_tabs.popularity_tab.popularity_tab" title="Link to this definition"></a></dt>
+<dd><p>Display the ‘Analyse de la Popularité’ tab with a bar chart visualizing genre popularity.</p>
+<p>This function generates a bar chart that shows the average popularity score (from 0 to 100)
+for each genre, allowing users to compare the popularity of different music genres.</p>
+<p>Parameters:
+df (pandas.DataFrame): The dataframe containing the music track data, including</p>
+<blockquote>
+<div><p>the columns ‘track_genre’ and ‘popularity’.</p>
+</div></blockquote>
+<p>The function uses Plotly for visualizations and Streamlit to render the UI.</p>
+</dd></dl>
+
+</section>
+<section id="module-musical_analysis_app.dashboard_tabs.recommendations_tab">
+<span id="recommendations-tab"></span><h2>recommendations_tab<a class="headerlink" href="#module-musical_analysis_app.dashboard_tabs.recommendations_tab" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.dashboard_tabs.recommendations_tab.recommendations_tab">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.dashboard_tabs.recommendations_tab.</span></span><span class="sig-name descname"><span class="pre">recommendations_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/dashboard_tabs/recommendations_tab.html#recommendations_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.dashboard_tabs.recommendations_tab.recommendations_tab" title="Link to this definition"></a></dt>
+<dd><p>Display the ‘Recommandations pour Maximiser les Ventes’ tab with insights
+on the optimal characteristics of successful tracks to help maximize sales.</p>
+<p>This function calculates and displays the optimal features for music tracks
+based on their popularity, both globally and by genre. It provides actionable
+insights on how to create tracks that align with successful trends in the music
+industry.</p>
+<p>Parameters:
+df (pandas.DataFrame): The dataframe containing the music track data, including</p>
+<blockquote>
+<div><p>the columns ‘popularity’, ‘track_genre’, and the feature columns.</p>
+</div></blockquote>
+<p>The function uses Streamlit to display the metrics for successful track characteristics
+and the features specific to the selected genre.</p>
+</dd></dl>
+
+</section>
+<section id="module-musical_analysis_app.dashboard_tabs.tendances_tab">
+<span id="tendances-tab"></span><h2>tendances_tab<a class="headerlink" href="#module-musical_analysis_app.dashboard_tabs.tendances_tab" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.dashboard_tabs.tendances_tab.tendances_tab">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.dashboard_tabs.tendances_tab.</span></span><span class="sig-name descname"><span class="pre">tendances_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/dashboard_tabs/tendances_tab.html#tendances_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.dashboard_tabs.tendances_tab.tendances_tab" title="Link to this definition"></a></dt>
+<dd><p>Display the ‘Analyse des Tendances’ tab with insights on the average duration
+of tracks by genre, helping identify trends in track length across genres.</p>
+<p>This function calculates and visualizes the average track duration for each genre
+and highlights the selected genre for comparison. The analysis helps to uncover
+trends in the duration of tracks that might be associated with genre-specific
+popularity or success.</p>
+<p>Parameters:
+df (pandas.DataFrame): The dataframe containing the music track data, including</p>
+<blockquote>
+<div><p>the ‘track_genre’ and ‘duration_ms’ columns.</p>
+</div></blockquote>
+<p>The function uses Streamlit to display a bar chart showing the average track duration
+by genre, with a specific color for the genre selected by the user.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="module-musical_analysis_app.utils">
+<span id="utils"></span><h1>utils<a class="headerlink" href="#module-musical_analysis_app.utils" title="Link to this heading"></a></h1>
+<section id="module-musical_analysis_app.utils.dashboard_utils">
+<span id="dashboard-utils"></span><h2>dashboard_utils<a class="headerlink" href="#module-musical_analysis_app.utils.dashboard_utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.utils.dashboard_utils.load_data">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.utils.dashboard_utils.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/utils/dashboard_utils.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.utils.dashboard_utils.load_data" title="Link to this definition"></a></dt>
+<dd><p>Charge le dataset Spotify depuis le fichier local</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.utils.dashboard_utils.normalize_tempo">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.utils.dashboard_utils.</span></span><span class="sig-name descname"><span class="pre">normalize_tempo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/utils/dashboard_utils.html#normalize_tempo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.utils.dashboard_utils.normalize_tempo" title="Link to this definition"></a></dt>
+<dd><p>Normalise le tempo entre 0 et 1</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="musical_analysis_app.utils.dashboard_utils.on_genre_select">
+<span class="sig-prename descclassname"><span class="pre">musical_analysis_app.utils.dashboard_utils.</span></span><span class="sig-name descname"><span class="pre">on_genre_select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/musical_analysis_app/utils/dashboard_utils.html#on_genre_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#musical_analysis_app.utils.dashboard_utils.on_genre_select" title="Link to this definition"></a></dt>
+<dd><p>Met à jour le genre sélectionné dans la session state de Streamlit.</p>
+<p>Cette fonction est utilisée comme callback pour le selectbox de sélection de genre.
+Elle copie la valeur du genre sélectionné depuis genre_selector vers selected_genre
+dans le session state de Streamlit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Requiert que st.session_state.genre_selector soit déjà initialisé.</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="malmak-musical-analysis-app documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, malmak.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

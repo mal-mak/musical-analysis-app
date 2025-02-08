@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>musical_analysis_app.pages.dashboard &mdash; malmak-musical-analysis-app 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            malmak-musical-analysis-app
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html#module-musical_analysis_app.pages">pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html#module-musical_analysis_app.dashboard_tabs">dashboard_tabs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html#module-musical_analysis_app.utils">utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">malmak-musical-analysis-app</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">musical_analysis_app.pages.dashboard</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for musical_analysis_app.pages.dashboard</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">musical_analysis_app.utils.dashboard_utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_data</span><span class="p">,</span>
+    <span class="n">normalize_tempo</span><span class="p">,</span>
+    <span class="n">on_genre_select</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">musical_analysis_app.dashboard_tabs.popularity_tab</span><span class="w"> </span><span class="kn">import</span> <span class="n">popularity_tab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">musical_analysis_app.dashboard_tabs.caracteristics_tab</span><span class="w"> </span><span class="kn">import</span> <span class="n">caracteristics_tab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">musical_analysis_app.dashboard_tabs.recommendations_tab</span><span class="w"> </span><span class="kn">import</span> <span class="n">recommendations_tab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">musical_analysis_app.dashboard_tabs.tendances_tab</span><span class="w"> </span><span class="kn">import</span> <span class="n">tendances_tab</span>
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../modules.html#musical_analysis_app.pages.dashboard.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The main function that sets up and runs the musical analysis dashboard.</span>
+
+<span class="sd">    This function initializes the Streamlit app with a set of interactive tabs that allow users to</span>
+<span class="sd">    explore different aspects of musical track data, including popularity, musical</span>
+<span class="sd">    characteristics, trends, and recommendations to maximize sales.</span>
+
+<span class="sd">    The function does the following:</span>
+<span class="sd">    - Configures the page layout and title.</span>
+<span class="sd">    - Loads the dataset and normalizes the tempo feature.</span>
+<span class="sd">    - Displays a genre selection widget for users to highlight a specific genre.</span>
+<span class="sd">    - Organizes and displays various analysis tabs:</span>
+<span class="sd">        - &quot;Popularité&quot; (Popularity): Analyzes average popularity by genre.</span>
+<span class="sd">        - &quot;Caractéristiques&quot; (Characteristics): Analyzes musical features by genre.</span>
+<span class="sd">        - &quot;Tendances&quot; (Trends): Analyzes average track duration by genre.</span>
+<span class="sd">        - &quot;Recommandations&quot; (Recommendations): Provides recommendations for maximizing</span>
+<span class="sd">          track sales based on characteristics of popular tracks.</span>
+
+<span class="sd">    Each tab presents its analysis using Streamlit components and Plotly charts.</span>
+
+<span class="sd">    The function runs within a Streamlit app and interacts with the data using pandas,</span>
+<span class="sd">    while also making use of Plotly for creating interactive visualizations.</span>
+
+<span class="sd">    :raises ValueError: If the genre selection is invalid or data is missing.</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    :rtype: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Function implementation goes here</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span><span class="n">page_title</span><span class="o">=</span><span class="s2">&quot;Dashboard Musical&quot;</span><span class="p">,</span> <span class="n">page_icon</span><span class="o">=</span><span class="s2">&quot;📊&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;wide&quot;</span><span class="p">)</span>
+
+    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Dashboard d&#39;Analyse Musicale&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Chargement des données</span>
+    <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;Chargement des données...&quot;</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+
+    <span class="c1"># Normalisation du tempo</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;tempo_normalized&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize_tempo</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="c1"># Popularité par genre</span>
+    <span class="n">genre_popularity</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;track_genre&quot;</span><span class="p">)[</span><span class="s2">&quot;popularity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Genre selection for highlights</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span>
+        <span class="s2">&quot;Sélectionner un genre&quot;</span><span class="p">,</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">genre_popularity</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="s2">&quot;genre_selector&quot;</span><span class="p">,</span>
+        <span class="n">on_change</span><span class="o">=</span><span class="n">on_genre_select</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Tabs pour organiser les analyses</span>
+    <span class="n">tab1</span><span class="p">,</span> <span class="n">tab2</span><span class="p">,</span> <span class="n">tab3</span><span class="p">,</span> <span class="n">tab4</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">tabs</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;Popularité&quot;</span><span class="p">,</span> <span class="s2">&quot;Caractéristiques&quot;</span><span class="p">,</span> <span class="s2">&quot;Tendances&quot;</span><span class="p">,</span> <span class="s2">&quot;Recommandations&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">tab1</span><span class="p">:</span>
+        <span class="n">popularity_tab</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">tab2</span><span class="p">:</span>
+        <span class="n">caracteristics_tab</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">tab3</span><span class="p">:</span>
+        <span class="n">tendances_tab</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">tab4</span><span class="p">:</span>
+        <span class="n">recommendations_tab</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, malmak.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

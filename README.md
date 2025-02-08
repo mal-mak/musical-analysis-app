@@ -11,9 +11,9 @@ A web application for analyzing and visualizing musical data, offering insights 
 
 ## Getting Started
 
-The application is available at `https://malmak-musical-analysis.streamlit.app`  
+The application is available at [Musical Analysis App](https://malmak-musical-analysis.streamlit.app)  
 
-Its documentation at `https://mal-mak.github.io/musical-analysis-app/`
+Its documentation at [Documentation](https://mal-mak.github.io/musical-analysis-app/)  
 
 ## Usage
 
